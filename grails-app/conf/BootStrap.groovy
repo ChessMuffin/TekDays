@@ -6,11 +6,23 @@ class BootStrap {
 
     def init = { servletContext ->
 		def df = new SimpleDateFormat('yyyy-MM-dd')
+		new TekUser(fullName: 'Hatim Shahzada',
+			userName: 'shazha',
+			password: 'Summer2014',
+			email: 'hatim.shahzada@assaabloy.com',
+			website: 'www.assaabloy.com',
+			bio: 'A lot...').save()
+		new TekUser(fullName: 'Jussi Jakenberg',
+				userName: 'jusjak',
+				password: 'qwerty123',
+				email: 'jussi.jakenberg@@assaabloy.com',
+				website: 'www.assaabloy.com',
+				bio: 'A lot...').save()
 		def tekEvent1 = new TekEvent(name:'Groovy One', 
 									 city:'Stockholm', 
 									 venue:'Stockholm Waterfront', 
 								     desc:'A Groovy bonanaza for all geeks!',
-									 organizer:'SGG (Stockholm Groovy Group)',
+									 organizer:TekUser.findByFullName('Hatim Shahzada'),
 									 startDate: df.parse('2014-07-14'),
 									 endDate: df.parse('2014-07-18'))
 		if(!tekEvent1.save()) {
@@ -21,19 +33,13 @@ class BootStrap {
 									 city:'San Fransisco',
 									 venue:'Hilton San Francisco Union Square',
 									 desc:'The one',
-									 organizer: 'Oracle',
+									 organizer: TekUser.findByFullName('Jussi Jakenberg'),
 									 startDate: df.parse('2014-09-28'),
 									 endDate: df.parse('2014-10-02'))
 		if(!tekEvent2.save()) {
 			println "Error saving tekEvent2"
 			tekEvent2.errors.allErrors.each {println "${it}"}
 		}
-		new TekUser(fullName: 'Hatim Shahzada',
-					userName: 'shazha',
-					password: 'Summer2014',
-					email: 'hatim.shahzada@assaabloy.com',
-					website: 'www.assaabloy.com',
-					bio: 'A lot...').save()
 	}
 	
     def destroy = {
