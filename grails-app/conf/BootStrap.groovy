@@ -1,4 +1,5 @@
 import com.tekdays.TekEvent
+import com.tekdays.TekUser
 import java.text.SimpleDateFormat
 
 class BootStrap {
@@ -27,7 +28,14 @@ class BootStrap {
 			println "Error saving tekEvent2"
 			tekEvent2.errors.allErrors.each {println "${it}"}
 		}
-    }
+		new TekUser(fullName: 'Hatim Shahzada',
+					userName: 'shazha',
+					password: 'Summer2014',
+					email: 'hatim.shahzada@assaabloy.com',
+					website: 'www.assaabloy.com',
+					bio: 'A lot...').save()
+	}
+	
     def destroy = {
     }
 }
