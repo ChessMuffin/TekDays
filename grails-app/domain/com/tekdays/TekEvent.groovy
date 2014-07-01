@@ -11,6 +11,12 @@ class TekEvent {
 	String desc
 	
     static constraints = {
+		name()
+		city()
+		venue()
+		desc(maxSize: 5000)
+		startDate()
+		endDate()
     }
 	
 	@Override
