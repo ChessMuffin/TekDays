@@ -15,9 +15,15 @@ class BootStrap {
 		new TekUser(fullName: 'Jussi Jakenberg',
 				userName: 'jusjak',
 				password: 'qwerty123',
-				email: 'jussi.jakenberg@@assaabloy.com',
+				email: 'jussi.jakenberg@assaabloy.com',
 				website: 'www.assaabloy.com',
 				bio: 'A lot...').save()
+		new TekUser(fullName: 'Oracle',
+				userName: 'oracle',
+				password: '*******',
+				email: 'java@oracle.com',
+				website: 'www.java.com',
+				bio: '-').save()
 		def tekEvent1 = new TekEvent(name:'Groovy One', 
 									 city:'Stockholm', 
 									 venue:'Stockholm Waterfront', 
@@ -25,6 +31,9 @@ class BootStrap {
 									 organizer:TekUser.findByFullName('Hatim Shahzada'),
 									 startDate: df.parse('2014-07-14'),
 									 endDate: df.parse('2014-07-18'))
+		tekEvent1.addToVolunteers(TekUser.findByFullName('Jussi Jakenberg'))
+		tekEvent1.addToRespondents('jussi.jakenberg@assaabloy.com')
+		tekEvent1.addToRespondents('zachary@linuxgurus.org')
 		if(!tekEvent1.save()) {
 			println "Error saving tekEvent1"
 			tekEvent1.errors.allErrors.each {println "${it}"}
@@ -33,7 +42,7 @@ class BootStrap {
 									 city:'San Fransisco',
 									 venue:'Hilton San Francisco Union Square',
 									 desc:'The one',
-									 organizer: TekUser.findByFullName('Jussi Jakenberg'),
+									 organizer: TekUser.findByFullName('Oracle'),
 									 startDate: df.parse('2014-09-28'),
 									 endDate: df.parse('2014-10-02'))
 		if(!tekEvent2.save()) {
