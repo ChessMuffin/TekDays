@@ -19,7 +19,8 @@ class TekEvent {
 		endDate()
     }
 	
-		
+	static hasMany = [volunteers: TekUser, respondents: String]
+	
 	@Override
 	String toString() {
 		"${name}, ${city}"

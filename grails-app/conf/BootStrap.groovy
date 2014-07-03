@@ -24,14 +24,16 @@ class BootStrap {
 			email: 'java@oracle.com',
 			website: 'www.java.com',
 			bio: '-').save()
-		def tekEvent1 = new TekEvent(name: 'Groovy One', 
-									 city: 'Stockholm', 
-									 venue: 'Stockholm Waterfront', 
-								     desc: 'A Groovy bonanaza for all geeks!',
-									 organizer: TekUser.findByFullName('Hatim Shahzada'),
+		def tekEvent1 = new TekEvent(name:'Groovy One', 
+									 city:'Stockholm', 
+									 venue:'Stockholm Waterfront', 
+								     desc:'A Groovy bonanaza for all geeks!',
+									 organizer:TekUser.findByFullName('Hatim Shahzada'),
 									 startDate: df.parse('2014-07-14'),
 									 endDate: df.parse('2014-07-18'))
-		tekEvent1.addToVolunteers(TekUser.findByFullName('Jussi Jakenberg'));
+		tekEvent1.addToVolunteers(TekUser.findByFullName('Jussi Jakenberg'))
+		tekEvent1.addToRespondents('jussi.jakenberg@assaabloy.com')
+		tekEvent1.addToRespondents('zachary@linuxgurus.org')
 		if(!tekEvent1.save()) {
 			println "Error saving tekEvent1"
 			tekEvent1.errors.allErrors.each {println "${it}"}
@@ -39,7 +41,7 @@ class BootStrap {
 		def tekEvent2 = new TekEvent(name: 'Java One',
 									 city: 'San Fransisco',
 									 venue:'Hilton San Francisco Union Square',
-									 desc: 'The one',
+									 desc:'The one',
 									 organizer: TekUser.findByFullName('Oracle'),
 									 startDate: df.parse('2014-09-28'),
 									 endDate: df.parse('2014-10-02'))
