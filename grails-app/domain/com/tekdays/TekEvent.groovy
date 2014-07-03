@@ -4,7 +4,7 @@ class TekEvent {
 
 	String city
 	String name
-	String organizer
+	TekUser organizer
 	String venue
 	Date startDate
 	Date endDate
@@ -19,6 +19,7 @@ class TekEvent {
 		endDate()
     }
 	
+		
 	@Override
 	String toString() {
 		"${name}, ${city}"
