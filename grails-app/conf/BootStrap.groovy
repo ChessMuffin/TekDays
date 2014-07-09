@@ -1,3 +1,5 @@
+import com.tekdays.Sponsor
+import com.tekdays.Sponsorship
 import com.tekdays.TekEvent
 import com.tekdays.TekUser
 import java.text.SimpleDateFormat
@@ -52,6 +54,14 @@ class BootStrap {
 			println "Error saving tekEvent2"
 			tekEvent2.errors.allErrors.each {println "${it}"}
 		}
+		def sponsor1 = new Sponsor(name: 'Contegix', 
+							 	   webiste: 'http://wwww.contegix.com',
+							       description: 'Beyond Managed Hosting for your Enterprise').save()
+		def sponsor2 = new Sponsor(name: 'Object Computing Incorporated',
+						           webiste: 'http://wwww.oci.com',
+						           description: 'An OO Software Engineering Company').save()
+		def sp1 = new Sponsorship(event: tekEvent1, sponsor: sponsor1, contributionType: 'Other', description: 'Cool T-shirts').save()					 
+							 					 
 	}
 	
     def destroy = {

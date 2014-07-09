@@ -14,12 +14,13 @@ class TekEvent {
 		name()
 		city()
 		venue()
-		desc(maxSize: 5000)
+		desc maxSize: 5000
 		startDate()
 		endDate()
+		sponsorships nullable:true
     }
 	
-	static hasMany = [volunteers: TekUser, respondents: String]
+	static hasMany = [volunteers: TekUser, respondents: String, sponsorships: Sponsorship]
 	
 	@Override
 	String toString() {
