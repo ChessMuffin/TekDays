@@ -55,12 +55,24 @@ class BootStrap {
 			tekEvent2.errors.allErrors.each {println "${it}"}
 		}
 		def sponsor1 = new Sponsor(name: 'Contegix', 
-							 	   webiste: 'http://wwww.contegix.com',
-							       description: 'Beyond Managed Hosting for your Enterprise').save()
+							 	   website: 'http://wwww.contegix.com',
+							       description: 'Beyond Managed Hosting for your Enterprise')
+		if(!sponsor1.save()) {
+			println "Error saving sponsor1"
+			sponsor1.errors.allErrors.each {println "${it}"}
+		}
 		def sponsor2 = new Sponsor(name: 'Object Computing Incorporated',
-						           webiste: 'http://wwww.oci.com',
-						           description: 'An OO Software Engineering Company').save()
-		def sp1 = new Sponsorship(event: tekEvent1, sponsor: sponsor1, contributionType: 'Other', description: 'Cool T-shirts').save()					 
+						           website: 'http://wwww.oci.com',
+						           description: 'An OO Software Engineering Company')
+	    if(!sponsor2.save()) {
+		    println "Error saving sponsor2"
+		    sponsor2.errors.allErrors.each {println "${it}"}
+		}
+		def sponsorship1 = new Sponsorship(event: tekEvent1, sponsor: sponsor1, contributionType: 'Other', description: 'Cool T-shirts')		
+		if(!sponsorship1.save()) {
+			println "Error saving sponsorship1"
+			sponsorship1.errors.allErrors.each {println "${it}"}
+		}
 							 					 
 	}
 	
