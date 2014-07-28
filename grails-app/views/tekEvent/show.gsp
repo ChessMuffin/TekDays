@@ -76,7 +76,7 @@
 						in="${tekEventInstance.sponsorships}" var="s">
 						<span class="property-value" aria-labelledby="sponsorships-label"><g:link
 								controller="sponsorship" action="show" id="${s.id}">
-								${s?.encodeAsHTML()}
+								${s?.sponsor.encodeAsHTML()}
 							</g:link></span>
 					</g:each></li>
 			</g:if>
