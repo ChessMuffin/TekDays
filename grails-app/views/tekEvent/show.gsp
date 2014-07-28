@@ -43,19 +43,17 @@
 			</g:if>
 
 			<g:if test="${tekEventInstance?.city}">
-				<li class="fieldcontain"><span id="city-label"
-					class="property-label"><g:message code="tekEvent.city.label"
-							default="City" /></span> <span class="property-value"
-					aria-labelledby="city-label"><g:fieldValue
-							bean="${tekEventInstance}" field="city" /></span></li>
-			</g:if>
-
-			<g:if test="${tekEventInstance?.venue}">
-				<li class="fieldcontain"><span id="venue-label"
-					class="property-label"><g:message
-							code="tekEvent.venue.label" default="Venue" /></span> <span
-					class="property-value" aria-labelledby="venue-label"><g:fieldValue
-							bean="${tekEventInstance}" field="venue" /></span></li>
+				<li class="fieldcontain">
+					<span id="city-label" class="property-label">
+						Location
+					</span> 
+					<span class="property-value" aria-labelledby="city-label">
+						<g:fieldValue
+							bean="${tekEventInstance}" field="venue" />, 
+						<g:fieldValue
+							bean="${tekEventInstance}" field="city" />
+					</span>
+				</li>
 			</g:if>
 
 			<g:if test="${tekEventInstance?.startDate}">
