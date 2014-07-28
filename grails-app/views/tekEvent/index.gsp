@@ -48,7 +48,7 @@
 					
 						<td>${fieldValue(bean: tekEventInstance, field: "venue")}</td>
 					
-						<td><g:formatDate date="${tekEventInstance.startDate}" /></td>
+						<td><g:formatDate format="MMMM dd, yyyy" date="${tekEventInstance.startDate}" /></td>
 					
 					</tr>
 				</g:each>

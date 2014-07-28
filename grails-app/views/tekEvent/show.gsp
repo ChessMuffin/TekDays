@@ -43,32 +43,29 @@
 			</g:if>
 
 			<g:if test="${tekEventInstance?.city}">
-				<li class="fieldcontain">
-					<span id="city-label" class="property-label">
-						Location
-					</span> 
-					<span class="property-value" aria-labelledby="city-label">
-						<g:fieldValue
-							bean="${tekEventInstance}" field="venue" />, 
-						<g:fieldValue
+				<li class="fieldcontain"><span id="city-label"
+					class="property-label"> Location </span> <span
+					class="property-value" aria-labelledby="city-label"> <g:fieldValue
+							bean="${tekEventInstance}" field="venue" />, <g:fieldValue
 							bean="${tekEventInstance}" field="city" />
-					</span>
-				</li>
+				</span></li>
 			</g:if>
 
 			<g:if test="${tekEventInstance?.startDate}">
 				<li class="fieldcontain"><span id="startDate-label"
 					class="property-label"><g:message
-							code="tekEvent.startDate.label" default="Start Date" /></span> <span
-					class="property-value" aria-labelledby="startDate-label"><g:formatDate
-							date="${tekEventInstance?.startDate}" /></span></li>
+							code="tekEvent.startDate.label" default="Start Date" /> </span> <span
+					class="property-value" aria-labelledby="startDate-label">
+						<g:formatDate format="MMMM dd, yyyy"
+							date="${tekEventInstance?.startDate}" /> </span></li>
 			</g:if>
 
 			<g:if test="${tekEventInstance?.endDate}">
 				<li class="fieldcontain"><span id="endDate-label"
 					class="property-label"><g:message
 							code="tekEvent.endDate.label" default="End Date" /></span> <span
-					class="property-value" aria-labelledby="endDate-label"><g:formatDate
+					class="property-value" aria-labelledby="endDate-label">
+						<g:formatDate format="MMMM dd, yyyy"
 							date="${tekEventInstance?.endDate}" /></span></li>
 			</g:if>
 
@@ -115,7 +112,7 @@
 					class="property-value" aria-labelledby="respondents-label"><g:fieldValue
 							bean="${tekEventInstance}" field="respondents" /></span></li>
 			</g:if>
-			
+
 			<g:if test="${tekEventInstance?.organizer}">
 				<li class="fieldcontain"><span id="organizer-label"
 					class="property-label"><g:message
