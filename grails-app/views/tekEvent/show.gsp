@@ -55,18 +55,17 @@
 				<li class="fieldcontain"><span id="startDate-label"
 					class="property-label"><g:message
 							code="tekEvent.startDate.label" default="Start Date" /> </span> <span
-					class="property-value" aria-labelledby="startDate-label">
-						<g:formatDate format="MMMM dd, yyyy"
-							date="${tekEventInstance?.startDate}" /> </span></li>
+					class="property-value" aria-labelledby="startDate-label"> <g:formatDate
+							format="MMMM dd, yyyy" date="${tekEventInstance?.startDate}" />
+				</span></li>
 			</g:if>
 
 			<g:if test="${tekEventInstance?.endDate}">
 				<li class="fieldcontain"><span id="endDate-label"
 					class="property-label"><g:message
 							code="tekEvent.endDate.label" default="End Date" /></span> <span
-					class="property-value" aria-labelledby="endDate-label">
-						<g:formatDate format="MMMM dd, yyyy"
-							date="${tekEventInstance?.endDate}" /></span></li>
+					class="property-value" aria-labelledby="endDate-label"> <g:formatDate
+							format="MMMM dd, yyyy" date="${tekEventInstance?.endDate}" /></span></li>
 			</g:if>
 
 			<g:if test="${tekEventInstance?.sponsorships}">
@@ -88,7 +87,7 @@
 						in="${tekEventInstance.tasks}" var="t">
 						<span class="property-value" aria-labelledby="tasks-label"><g:link
 								controller="task" action="show" id="${t.id}">
-								${t?.encodeAsHTML()}
+								${t?.title}
 							</g:link></span>
 					</g:each></li>
 			</g:if>
