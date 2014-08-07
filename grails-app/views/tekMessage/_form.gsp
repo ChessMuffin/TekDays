@@ -38,7 +38,12 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: tekMessageInstance, field: 'event', 'error')} required">
+	<label for="event">
+		<g:message code="tekMessage.event.label" default="Event" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="event" name="event.id" from="${com.tekdays.TekEvent.list()}" optionKey="id" required="" value="${tekMessageInstance?.event?.id}" class="many-to-one"/>
 
-<g:hiddenField name="event.id" value="${tekMessageInstance?.event?.id}"/>
-
+</div>
 
