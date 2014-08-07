@@ -15,6 +15,12 @@ class SponsorshipSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    def "test toString"() {
+		when:
+		def sponsor = new Sponsor(name: 'Coca Cola')
+		def sponsorShip = new Sponsorship(sponsor: sponsor, contributionType: 'Other')
+		
+		then:
+		sponsorShip.toString() == "Coca Cola, Other"
     }
 }

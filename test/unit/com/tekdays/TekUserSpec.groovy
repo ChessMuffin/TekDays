@@ -15,10 +15,11 @@ class TekUserSpec extends Specification {
     def cleanup() {
     }
 
-    void "test toString"() {
-		when: "a TekUser has a name"
+    def "test toString"() {
+		when:
 		def tekUser = new TekUser(fullName: 'Hatim Shahzada')
-		then: "the toString method will show the name"
+		
+		then:
 		tekUser.toString() == 'Hatim Shahzada'
     }
 }

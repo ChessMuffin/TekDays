@@ -15,10 +15,11 @@ class TekMessageSpec extends Specification {
     def cleanup() {
     }
 
-    void "test toString"() {
-		when :"a TekMessage has a subject"
+    def "test toString"() {
+		when:
 		def msg = new TekMessage(subject: 'A proposal', content: '-')
-		then :"the toString method will show the subject"
+		
+		then:
 		msg.toString() == 'A proposal'
     }
 }

@@ -20,11 +20,12 @@ class TaskServiceSpec extends Specification {
     }
 
     void "test addDefaultTasks"() {
-		when: "we pass a TekEvent to addDefaultTasks"
+		when:
 		TekEvent tekEvent = new TekEvent(name: 'Test event', city: 'Test city', description: 'Test description', 
 			organizer: TekUser.findByUserName('tester') ,startDate: new Date(), endDate: new Date() + 1)
-		taskService.addDefaultTasks(tekEvent)		
-		then: "default tasks are added"
+		taskService.addDefaultTasks(tekEvent)	
+			
+		then:
 		tekEvent.tasks.size() > 0
     }
 }
